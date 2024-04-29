@@ -1,15 +1,36 @@
-import java.util.Arrays;
-
 public class Main {
-
     public static void main(String[] args) {
-        int [][] matrix = new int[3][3];
-        int x=0;
+        // Тестові дані
+        int[][] matrix1 = {
+                {1, 2, 3},
+                {2, 3, 3},
+                {3, 4, 5}
+        };
 
-        for(int[] row:matrix)
-            Arrays.fill(row,x);
+        int[][] matrix2 = {
+                {1, 2, 3},
+                {2, 3, 3},
+                {3, 4, 4}
+        };
 
-        for(int[] row:matrix)
-            System.out.println(Arrays.toString(row));
+        // Тестування методу findMostFrequentNumber
+        testFindMostFrequentNumber(matrix1);
+        testFindMostFrequentNumber(matrix2);
+    }
+
+    private static void testFindMostFrequentNumber(int[][] matrix) {
+        int mostFrequent = MatrixAnalyzer.findMostFrequentNumber(matrix);
+        System.out.println("Матриця: ");
+        printMatrix(matrix);
+        System.out.println("Число, яке повторюється найбільшу кількість разів: " + mostFrequent);
+    }
+
+    private static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int num : row) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
     }
 }
